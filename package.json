@@ -1,0 +1,23 @@
+{
+  "name": "meta-nostr",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^5.7.1",
+    "events": "^3.3.0",
+    "parcel": "^2.8.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0"
+  },
+  "dependencies": {
+    "nostr-tools": "^0.24.1"
+  }
+}

@@ -1,0 +1,11 @@
+/.node_modules/
+/dist
+*lock.json
+
+.DS_Store
+/.vscode/
+
+package-lock.json
+yarn.lock
+node_modules
+.parcel-cache

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Nostr Metadata</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+    <style>
+      .header {
+        margin-bottom: 3rem;
+      }
+      .header h1 {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="header">
+        <h1>Send metadata to Nostr</h1>
+        <small
+          >You need to have
+          <a
+            href="https://github.com/fiatjaf/nos2x"
+            target="_blank"
+            rel="noopener noreferrer"
+            >nos2x</a
+          >
+          to use this tool</small
+        >
+      </div>
+      <form id="form">
+        <div class="grid">
+          <label for="name">
+            Username
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Username"
+              required />
+          </label>
+
+          <label for="nip05">
+            NIP05
+            <input
+              type="text"
+              id="nip05"
+              name="nip05"
+              placeholder="bob@example.com" />
+          </label>
+        </div>
+
+        <label for="about">About</label>
+        <textarea
+          type="text"
+          id="about"
+          name="about"
+          placeholder="Just me..."></textarea>
+        <label for="picture">
+          Image
+          <input
+            type="text"
+            id="picture"
+            name="picture"
+            placeholder="Image URL" />
+        </label>
+        <article style="display: flex; justify-content: center">
+          <figure id="image-display">
+            <figcaption>Profile picture preview</figcaption>
+          </figure>
+        </article>
+
+        <button
+          type="button"
+          id="send-event">
+          Submit
+        </button>
+      </form>
+    </main>
+    <script
+      type="module"
+      src="scripts.js"></script>
+  </body>
+</html>
