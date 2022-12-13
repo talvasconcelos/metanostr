@@ -17,7 +17,7 @@ window.addEventListener("load", async () => {
     return;
   }
 
-  window.nostr = nostr;
+  const nostr = window.nostr;
   const pubkey = await nostr.getPublicKey();
 
   await startPool(pubkey);
@@ -25,6 +25,19 @@ window.addEventListener("load", async () => {
   const form = document.getElementById("form");
   const sendBtn = document.getElementById("send-event");
   sendBtn.addEventListener("click", logKey, false);
+
+  document.getElementById("picture").addEventListener("change", (ev) => {
+    let src = ev.target.value;
+    let image = document.getElementById("image-display").firstElementChild;
+    if (!isImage(src)) {
+      image.style.display = "none";
+      document.getElementById("image-display").ariaBusy = true;
+      return;
+    }
+    image.style.display = "block";
+    document.getElementById("image-display").ariaBusy = false;
+    image.src = src;
+  });
 
   async function logKey() {
     const data = Object.fromEntries(new FormData(form));
@@ -34,7 +47,9 @@ window.addEventListener("load", async () => {
     let content = {};
     data.name.length ? (content.name = data.name) : null;
     data.about.length ? (content.about = data.about) : null;
-    data.picture.length ? (content.picture = data.picture) : null;
+    data.picture.length && isImage(data.picture)
+      ? (content.picture = data.picture)
+      : null;
     data.nip05.length ? (content.nip05 = data.nip05) : null;
 
     event.kind = 0;
@@ -93,6 +108,10 @@ function populateInputs(event, relay) {
     img.src = state.content.picture;
     figure.appendChild(img);
   }
+}
+
+function isImage(url) {
+  return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
 
 /*
