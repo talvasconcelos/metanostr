@@ -76,7 +76,7 @@ window.addEventListener("load", async () => {
 });
 
 async function startPool(pubkey) {
-  const userRelays = await nostr.getRelays();
+  const userRelays = await nostr?.getRelays?.() || [];
   const relays = defaultRelays;
   for (const key in userRelays) {
     relays.set(key, userRelays[key]);
