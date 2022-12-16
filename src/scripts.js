@@ -13,7 +13,7 @@ let state = null;
 
 window.addEventListener("load", async () => {
   if (!window.nostr) {
-    alert("You need nos2x to use this tool!");
+    alert("You need a NIP-07 browser extension (Alby, nos2x) to use this tool!");
     return;
   }
 
