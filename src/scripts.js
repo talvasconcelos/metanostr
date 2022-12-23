@@ -51,6 +51,7 @@ window.addEventListener("load", async () => {
       ? (content.picture = data.picture)
       : null;
     data.nip05.length ? (content.nip05 = data.nip05) : null;
+    data.lud06.length ? (content.lud06 = data.lud06) : null;
 
     event.kind = 0;
     event.pubkey = await nostr.getPublicKey();
@@ -96,6 +97,7 @@ function populateInputs(event, relay) {
   };
   document.getElementById("name").value = state.content.name || "";
   document.getElementById("nip05").value = state.content.nip05 || "";
+  document.getElementById("lud06").value = state.content.lud06 || "";
   document.getElementById("about").value = state.content.about || "";
   document.getElementById("picture").value = state.content.picture || "";
 
